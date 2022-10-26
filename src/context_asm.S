@@ -73,6 +73,8 @@ _asm_trap_handler:
 	# Save most of the other user registers
 	csrrw a0, sscratch, a0
 
+	beqz a0, _trap_panic
+
 	sd ra, 1*8(a0)
 	sd sp, 2*8(a0)
 	sd gp, 3*8(a0)
@@ -134,3 +136,6 @@ _asm_trap_handler:
 	addi sp, sp, 16*8
 
 	ret
+
+_trap_panic:
+	j _trap_panic

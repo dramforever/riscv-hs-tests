@@ -50,6 +50,9 @@ void run_task(struct riscv_regs *regs, struct riscv_status *status,
 
 void init_task_trap()
 {
+	asm volatile("csrw sscratch, zero");
+	asm volatile("csrw vsscratch, zero");
+
 	asm volatile("csrw stvec, %0" ::"r"(_asm_trap_handler) :);
 	asm volatile("csrw vstvec, %0" ::"r"(_asm_trap_handler) :);
 }
