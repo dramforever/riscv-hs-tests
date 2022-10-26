@@ -2,22 +2,22 @@
 	.global _start
 _start:
 	# Zero out .bss section
-	la t0, _sbss
-	la t1, _ebss
+	la a2, _sbss
+	la a3, _ebss
 1:
-	beq t0, t1, 2f
-	sd zero, 0(t0)
-	addi t0, t0, 8
+	beq a2, a3, 2f
+	sd zero, 0(a2)
+	addi a2, a2, 8
 	j 1b
 2:
 
 	la sp, _init_stack_end
 
-	la t0, _hang
-	csrw stvec, t0
+	la a2, _hang
+	csrw stvec, a2
 
-	la t0, main
-	jr t0
+	la a2, main
+	jr a2
 
 	# Hang if we return from main or get an exception early
 	.balign 4

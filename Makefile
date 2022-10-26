@@ -7,7 +7,7 @@ OBJCOPY = $(CROSS_COMPILE)objcopy
 CFLAGS += -Wall -Wextra -MMD -ffreestanding -O -mcmodel=medany
 ASFLAGS += -Wall -Wextra -MMD -ffreestanding -O -mcmodel=medany
 
-objects = entry.o utils.o main.o printf.o
+objects = entry.o utils.o main.o printf.o context.o context_asm.o
 
 targets = $(patsubst %,build/%,$(objects))
 
