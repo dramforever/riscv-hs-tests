@@ -40,6 +40,11 @@
 extern "C" {
 #endif
 
+#ifdef __GNUC__
+#define _printf_attribute(a, b) __attribute__((__format__(__printf__, a, b)))
+#else
+#define _printf_attribute(a, b)
+#endif
 
 /**
  * Output a character to a custom device like UART, used by the printf() function
@@ -58,6 +63,7 @@ void _putchar(char character);
  * \return The number of characters that are written into the array, not counting the terminating null character
  */
 #define printf printf_
+_printf_attribute(1, 2)
 int printf_(const char* format, ...);
 
 
@@ -69,6 +75,7 @@ int printf_(const char* format, ...);
  * \return The number of characters that are WRITTEN into the buffer, not counting the terminating null character
  */
 #define sprintf sprintf_
+_printf_attribute(2, 3)
 int sprintf_(char* buffer, const char* format, ...);
 
 
@@ -84,6 +91,7 @@ int sprintf_(char* buffer, const char* format, ...);
  */
 #define snprintf  snprintf_
 #define vsnprintf vsnprintf_
+_printf_attribute(3, 4)
 int  snprintf_(char* buffer, size_t count, const char* format, ...);
 int vsnprintf_(char* buffer, size_t count, const char* format, va_list va);
 
@@ -106,6 +114,7 @@ int vprintf_(const char* format, va_list va);
  * \param format A string that specifies the format of the output
  * \return The number of characters that are sent to the output function, not counting the terminating null character
  */
+_printf_attribute(3, 4)
 int fctprintf(void (*out)(char character, void* arg), void* arg, const char* format, ...);
 
 
