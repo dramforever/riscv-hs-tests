@@ -1,0 +1,14 @@
+AlignConsecutiveAssignments: true
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+AllowShortFunctionsOnASingleLine: None
+BraceWrapping:
+  AfterFunction: true
+BreakBeforeBraces: Custom
+BreakStringLiterals: false
+ContinuationIndentWidth: 8
+Cpp11BracedListStyle: false
+IndentWidth: 8
+SpacesInContainerLiterals: true
+TabWidth: 8
+UseTab: Always
