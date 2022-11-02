@@ -22,4 +22,17 @@ void run_task(struct riscv_regs *regs, struct riscv_status *status,
 
 void init_task_trap(void);
 
+typedef void (*task_func)(unsigned long arg0);
+
+static inline void gen_task(struct riscv_regs *regs, void *stack,
+			    task_func func, unsigned long arg0)
+{
+	for (int i = 0; i < 32; i++)
+		regs->regs[i] = 0;
+
+	regs->regs[0 /* pc */]	= (unsigned long)func;
+	regs->regs[2 /* sp */]	= (unsigned long)stack;
+	regs->regs[10 /* a0 */] = arg0;
+}
+
 #endif
