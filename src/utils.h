@@ -1,6 +1,8 @@
 #ifndef _UTILS_H_
 #define _UTILS_H_
 
+#define FIELD(val, mask) (((val) & (mask)) / ((mask) & -(mask)))
+
 #define csr_read(name)                                          \
 	({                                                      \
 		unsigned long _val;                             \
