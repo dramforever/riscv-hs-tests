@@ -17,9 +17,11 @@ void test_illegal(void)
 	struct riscv_regs regs;
 	struct riscv_status status;
 
+	/* Set up some values to check that they changed */
 	unsigned long hstatus;
 	hstatus = csr_read(hstatus);
 	hstatus |= HSTATUS_GVA;
+	hstatus &= ~HSTATUS_SPVP;
 	csr_write(hstatus, hstatus);
 
 	/* Write some garbage into stval and htval */
@@ -37,5 +39,6 @@ void test_illegal(void)
 
 	ASSERT(FIELD(status.sstatus, SSTATUS_SPP) == 1, "sstatus.SPP = 1");
 	ASSERT(FIELD(status.hstatus, HSTATUS_SPV) == 1, "sstatus.SPV = 1");
+	ASSERT(FIELD(status.hstatus, HSTATUS_SPVP) == 1, "hstatus.SPVP = 1");
 	ASSERT(FIELD(status.hstatus, HSTATUS_GVA) == 0, "hstatus.GVA = 0");
 }
