@@ -16,4 +16,8 @@
 		asm volatile("csrw " #name ", %0" : : "r"(_val) :); \
 	})
 
+void panic(const char *format, ...);
+
+extern char _image_start[], _image_end[];
+
 #endif
