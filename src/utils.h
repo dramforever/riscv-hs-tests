@@ -20,4 +20,6 @@ void panic(const char *format, ...);
 
 extern char _image_start[], _image_end[];
 
+extern char playground[];
+
 #endif

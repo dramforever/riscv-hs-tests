@@ -4,8 +4,6 @@
 #include "test_helpers.h"
 #include "utils.h"
 
-char payload_stack[32];
-
 static void payload()
 {
 	asm volatile(".word 0xc0001073");
@@ -28,7 +26,7 @@ void test_illegal(void)
 	csr_write(stval, 0xaaaaUL);
 	csr_write(htval, 0xaaaaUL);
 
-	gen_task(&regs, STACK(payload_stack), payload, 0);
+	gen_task(&regs, STACK(stack1), payload, 0);
 	run_task(&regs, &status, TASK_VS);
 
 	ASSERT(status.scause == CAUSE_ILLEGAL_INSTRUCTION,
