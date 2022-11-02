@@ -8,7 +8,7 @@ CFLAGS += -Wall -Wextra -MMD -ffreestanding -O -mcmodel=medany -g -march=rv64gc_
 ASFLAGS += $(CFLAGS)
 
 objects = entry.o utils.o main.o printf.o context.o context_asm.o all_tests.o pt.o
-objects += test_illegal.o
+objects += test_illegal.o test_mapping.o
 
 targets = $(patsubst %,build/%,$(objects))
 
