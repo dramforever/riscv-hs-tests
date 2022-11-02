@@ -3,6 +3,8 @@
 
 /* clang-format off */
 
+/* CSR bitfields */
+
 #define SSTATUS_SIE			0x00000002UL
 #define SSTATUS_SPIE_SHIFT		5
 #define SSTATUS_SPIE			(1UL << SSTATUS_SPIE_SHIFT)
@@ -25,6 +27,7 @@
 #define HSTATUS_GVA			0x00000040UL
 
 /* Exception causes */
+
 #define CAUSE_MISALIGNED_FETCH		0x0
 #define CAUSE_FETCH_ACCESS		0x1
 #define CAUSE_ILLEGAL_INSTRUCTION	0x2
@@ -44,6 +47,79 @@
 #define CAUSE_LOAD_GUEST_PAGE_FAULT	0x15
 #define CAUSE_VIRTUAL_INST_FAULT	0x16
 #define CAUSE_STORE_GUEST_PAGE_FAULT	0x17
+
+/* Page table related encodings */
+#define PAGE_SIZE			4096
+#define PAGE_SHIFT			12
+
+#define PTE_V				(1 << 0)
+#define PTE_R				(1 << 1)
+#define PTE_W				(1 << 2)
+#define PTE_X				(1 << 3)
+#define PTE_U				(1 << 4)
+#define PTE_G				(1 << 5)
+#define PTE_A				(1 << 6)
+#define PTE_D				(1 << 7)
+
+#define PTE_RSW_SHIFT			8
+#define PTE_RSW_MASK			0x3
+
+#define PTE_PPN_SHIFT 			10
+#define PTE64_PPN_MASK 			((0x1UL << 44) - 1)
+#define PTE32_PPN_MASK			((1 << 22) - 1)
+
+#define PTE64_RESERVED_SHIFT		54
+
+#if __riscv_xlen == 64
+# define PTE_PPN_MASK			PTE64_PPN_MASK
+#elif __riscv_xlen == 32
+# define PTE_PPN_MASK			PTE32_PPN_MASK
+#else
+# error "Unexpected __riscv_xlen"
+#endif
+
+
+#define SATP32_MODE_SHIFT		31
+#define SATP32_ASID_SHIFT		22
+#define SATP32_ASID_MASK		0x7FC00000UL
+#define SATP32_PPN			0x003FFFFFUL
+
+#define SATP64_MODE_SHIFT		60
+#define SATP64_ASID_SHIFT		44
+#define SATP64_ASID_MASK		0x0FFFF00000000000UL
+#define SATP64_PPN			0x00000FFFFFFFFFFFUL
+
+#define HGATP32_MODE_SHIFT		31
+#define HGATP32_VMID_SHIFT		22
+#define HGATP32_VMID_MASK		0x7FC00000UL
+#define HGATP32_PPN			0x003FFFFFUL
+
+#define HGATP64_MODE_SHIFT		60
+#define HGATP64_VMID_SHIFT		44
+#define HGATP64_VMID_MASK		0x0FFFF00000000000UL
+#define HGATP64_PPN			0x00000FFFFFFFFFFFUL
+
+#if __riscv_xlen == 64
+#define SATP_PPN			SATP64_PPN
+#define SATP_ASID_SHIFT			SATP64_ASID_SHIFT
+#define SATP_ASID_MASK			SATP64_ASID_MASK
+#define SATP_MODE_SHIFT			SATP64_MODE_SHIFT
+
+#define HGATP_PPN			HGATP64_PPN
+#define HGATP_VMID_SHIFT		HGATP64_VMID_SHIFT
+#define HGATP_VMID_MASK			HGATP64_VMID_MASK
+#define HGATP_MODE_SHIFT		HGATP64_MODE_SHIFT
+#else
+#define SATP_PPN			SATP32_PPN
+#define SATP_ASID_SHIFT			SATP32_ASID_SHIFT
+#define SATP_ASID_MASK			SATP32_ASID_MASK
+#define SATP_MODE_SHIFT			SATP32_MODE_SHIFT
+
+#define HGATP_PPN			HGATP32_PPN
+#define HGATP_VMID_SHIFT		HGATP32_VMID_SHIFT
+#define HGATP_VMID_MASK			HGATP32_VMID_MASK
+#define HGATP_MODE_SHIFT		HGATP32_MODE_SHIFT
+#endif
 
 /* clang-format on */
 

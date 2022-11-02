@@ -17,8 +17,10 @@ SECTIONS {
         *(.rodata*)
     }
 
-    . = ALIGN(1 << 12);
+    . = ALIGN(1 << 16);
     .data : {
+        *(.data.pagesize4)
+        *(.data.pagesize)
         *(.data)
         *(.data*)
     }
