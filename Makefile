@@ -4,8 +4,8 @@ CC = $(CROSS_COMPILE)gcc
 LD = $(CROSS_COMPILE)ld
 OBJCOPY = $(CROSS_COMPILE)objcopy
 
-CFLAGS += -Wall -Wextra -MMD -ffreestanding -O -mcmodel=medany
-ASFLAGS += -Wall -Wextra -MMD -ffreestanding -O -mcmodel=medany
+CFLAGS += -Wall -Wextra -MMD -ffreestanding -O -mcmodel=medany -g -march=rv64gc_hh
+ASFLAGS += $(CFLAGS)
 
 objects = entry.o utils.o main.o printf.o context.o context_asm.o all_tests.o pt.o
 objects += test_illegal.o

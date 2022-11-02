@@ -19,4 +19,8 @@ void init_gpt(void);
 void init_spt(void);
 void init_vspt(void);
 
+void map_gpt(unsigned long va, addr_t pa, pte_t prot);
+void map_spt(unsigned long va, addr_t pa, pte_t prot);
+void map_vspt(unsigned long va, addr_t pa, pte_t prot);
+
 #endif

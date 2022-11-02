@@ -132,6 +132,7 @@ void init_gpt(void)
 	identity_map(gpt_root, &ptw_sv39x4, prot);
 	csr_write(hgatp, ptw_sv39x4.mode << HGATP_MODE_SHIFT |
 				 ((pte_t)((addr_t)gpt_root >> PAGE_SHIFT)));
+	asm volatile("hfence.gvma");
 }
 
 void init_spt(void)
@@ -140,6 +141,7 @@ void init_spt(void)
 	identity_map(spt_root, &ptw_sv39, prot);
 	csr_write(satp, ptw_sv39.mode << SATP_MODE_SHIFT |
 				((pte_t)((addr_t)spt_root >> PAGE_SHIFT)));
+	asm volatile("sfence.vma");
 }
 
 void init_vspt(void)
@@ -148,4 +150,26 @@ void init_vspt(void)
 	identity_map(vspt_root, &ptw_sv39, prot);
 	csr_write(vsatp, ptw_sv39.mode << SATP_MODE_SHIFT |
 				 ((pte_t)((addr_t)vspt_root >> PAGE_SHIFT)));
+	asm volatile("hfence.vvma");
+}
+
+void map_gpt(unsigned long va, addr_t pa, pte_t prot)
+{
+	map_page(gpt_root, &ptw_sv39x4, va,
+		 pa >> PAGE_SHIFT << PTE_PPN_SHIFT | prot);
+	asm volatile("hfence.gvma");
+}
+
+void map_spt(unsigned long va, addr_t pa, pte_t prot)
+{
+	map_page(spt_root, &ptw_sv39, va,
+		 pa >> PAGE_SHIFT << PTE_PPN_SHIFT | prot);
+	asm volatile("sfence.vma");
+}
+
+void map_vspt(unsigned long va, addr_t pa, pte_t prot)
+{
+	map_page(vspt_root, &ptw_sv39, va,
+		 pa >> PAGE_SHIFT << PTE_PPN_SHIFT | prot);
+	asm volatile("hfence.vvma");
 }
