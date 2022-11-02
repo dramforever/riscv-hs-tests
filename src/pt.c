@@ -44,6 +44,9 @@ void reset_pt()
 	csr_write(vsatp, 0);
 	csr_write(satp, 0);
 
+	asm volatile("sfence.vma");
+	asm volatile("hfence.gvma");
+
 	clear_pt_node(gpt_root, sizeof(gpt_root) / sizeof(gpt_root[0]));
 	clear_pt_node(spt_root, sizeof(spt_root) / sizeof(spt_root[0]));
 	clear_pt_node(vspt_root, sizeof(vspt_root) / sizeof(vspt_root[0]));
@@ -59,6 +62,7 @@ pte_t *alloc_node()
 
 	pte_t *res = pt_alloc_top;
 	pt_alloc_top += PAGE_SIZE / sizeof(pte_t);
+	clear_pt_node(res, PAGE_SIZE / sizeof(pte_t));
 	return res;
 }
 
