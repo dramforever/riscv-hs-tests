@@ -1,7 +1,7 @@
-{ stdenv, mkShell, clang-tools }:
+{ stdenv, mkShell, clang-tools, qemu }:
 
 mkShell {
   CROSS_COMPILE = stdenv.cc.targetPrefix;
-  depsBuildBuild = [ clang-tools ];
+  depsBuildBuild = [ clang-tools qemu ];
   hardeningDisable = [ "all" ];
 }
