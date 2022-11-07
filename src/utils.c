@@ -27,3 +27,10 @@ void panic(const char *format, ...)
 		/* Nothing */
 	}
 }
+
+void *memcpy(char *dst, const char *src, size_t num)
+{
+	for (size_t i = 0; i < num; i++)
+		dst[i] = src[i];
+	return dst;
+}
