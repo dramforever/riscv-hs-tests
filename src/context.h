@@ -13,6 +13,7 @@ struct riscv_status {
 	unsigned long stval;
 	unsigned long hstatus;
 	unsigned long htval;
+	unsigned long htinst;
 };
 
 enum task_priv { TASK_HS, TASK_HU, TASK_VS, TASK_VU, TASK_S, TASK_U };

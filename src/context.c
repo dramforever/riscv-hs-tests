@@ -8,7 +8,7 @@ void _asm_trap_handler(void);
 void run_task(struct riscv_regs *regs, struct riscv_status *status,
 	      enum task_priv priv)
 {
-	unsigned long scause, sstatus, stval, hstatus, htval;
+	unsigned long scause, sstatus, stval, hstatus, htval, htinst;
 	unsigned long spp, spv, is_hyp;
 
 	spp    = (priv == TASK_HS || priv == TASK_VS || priv == TASK_S);
@@ -37,9 +37,11 @@ void run_task(struct riscv_regs *regs, struct riscv_status *status,
 	if (is_hyp) {
 		hstatus = csr_read(hstatus);
 		htval	= csr_read(htval);
+		htinst	= csr_read(htinst);
 	} else {
 		hstatus = 0;
 		htval	= 0;
+		htinst	= 0;
 	}
 
 	status->scause	= scause;
@@ -47,6 +49,7 @@ void run_task(struct riscv_regs *regs, struct riscv_status *status,
 	status->stval	= stval;
 	status->hstatus = hstatus;
 	status->htval	= htval;
+	status->htinst	= htinst;
 }
 
 void init_task_trap()
