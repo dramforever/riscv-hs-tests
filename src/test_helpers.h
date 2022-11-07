@@ -13,9 +13,4 @@
 			printf("[ FAIL ] " msg "\n", ##__VA_ARGS__); \
 	} while (0)
 
-
-extern char stack1[], stack2[], stack3[];
-
-#define STACK(buf) ((void *)((char *)buf + 4096))
-
 #endif

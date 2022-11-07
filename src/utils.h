@@ -26,4 +26,11 @@ extern char playground[];
 
 void *memcpy(char *dst, const char *src, size_t num);
 
+extern char stack1[], stack2[], stack3[];
+
+/**
+ * Use with predefined @c stackN variables like @c STACK(stack1)
+ */
+#define STACK(buf) ((void *)((char *)buf + 4096))
+
 #endif
