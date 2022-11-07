@@ -3,9 +3,6 @@
 
 #include <stddef.h>
 
-void test_illegal(void);
-void test_mapping(void);
-
 typedef void (*test_case)(void);
 
 extern test_case all_test_cases[];
