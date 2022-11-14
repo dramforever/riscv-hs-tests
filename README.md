@@ -46,38 +46,9 @@ $ qemu-system-riscv64 -M virt -kernel build/riscv-hs-tests.elf -s -S
 $ gdb
 ```
 
-## Catching exceptions
+More details in the [wiki].
 
-There's a framework for catching exceptions in `src/context.{c,h}`. Basic usage looks like this:
-
-```c
-struct riscv_regs regs;
-struct riscv_status status;
-
-gen_task(&regs, STACK(stack1), payload, 0);
-run_task(&regs, &status, TASK_VS);
-```
-
-## Page table management
-
-A basic set of helpers are available for generating page tables:
-
-```c
-void reset_pt(void);
-void init_gpt(void);
-void init_spt(void);
-void init_vspt(void);
-
-void map_gpt(unsigned long va, addr_t pa, pte_t prot);
-void map_spt(unsigned long va, addr_t pa, pte_t prot);
-void map_vspt(unsigned long va, addr_t pa, pte_t prot);
-```
-
-The `init_*` functions sets the corresponding translation to a non-bare mode and identity-maps the entire test binary for ease of use.
-
-To map further address you can use the `map_*` functions, which maps pages one at a time with given flag bits in `prot`.
-
-`reset_pt` resets everything back to bare mode and deallocates all the page table nodes.
+[wiki]: https://github.com/dramforever/riscv-hs-tests/wiki
 
 ## Thanks
 
