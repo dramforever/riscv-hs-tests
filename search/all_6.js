@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['hgatp32_5fmode_5fshift_0',['HGATP32_MODE_SHIFT',['../riscv__encodings_8h.html#af2fb50c7a5c15fc90e413518aa04deba',1,'riscv_encodings.h']]],
+  ['hgatp32_5fppn_1',['HGATP32_PPN',['../riscv__encodings_8h.html#aa35406504ce1e1e91f2a2a31d206de38',1,'riscv_encodings.h']]],
+  ['hgatp32_5fvmid_5fmask_2',['HGATP32_VMID_MASK',['../riscv__encodings_8h.html#a042d50c613b9bcfb83fada8f1210183e',1,'riscv_encodings.h']]],
+  ['hgatp32_5fvmid_5fshift_3',['HGATP32_VMID_SHIFT',['../riscv__encodings_8h.html#a09fdc756f95366a5ff862791adfdac88',1,'riscv_encodings.h']]],
+  ['hgatp64_5fmode_5fshift_4',['HGATP64_MODE_SHIFT',['../riscv__encodings_8h.html#afe7ae3c677b4efcc261d78b6f6068b8d',1,'riscv_encodings.h']]],
+  ['hgatp64_5fppn_5',['HGATP64_PPN',['../riscv__encodings_8h.html#a66aadf8c4583ae46071b88055066e23d',1,'riscv_encodings.h']]],
+  ['hgatp64_5fvmid_5fmask_6',['HGATP64_VMID_MASK',['../riscv__encodings_8h.html#adc4a31e594d31ea2ef793f7cc9f50444',1,'riscv_encodings.h']]],
+  ['hgatp64_5fvmid_5fshift_7',['HGATP64_VMID_SHIFT',['../riscv__encodings_8h.html#aa37d7b1254962e94d4ad6b7922006ee1',1,'riscv_encodings.h']]],
+  ['hgatp_5fmode_5fshift_8',['HGATP_MODE_SHIFT',['../riscv__encodings_8h.html#a630b8da2167605f38bacf8b58405cd13',1,'riscv_encodings.h']]],
+  ['hgatp_5fppn_9',['HGATP_PPN',['../riscv__encodings_8h.html#ad500d1a3fbcddd8d74714cb8f77a658b',1,'riscv_encodings.h']]],
+  ['hgatp_5fvmid_5fmask_10',['HGATP_VMID_MASK',['../riscv__encodings_8h.html#af9dc24c4a7d8933e41e663e5ffb342d2',1,'riscv_encodings.h']]],
+  ['hgatp_5fvmid_5fshift_11',['HGATP_VMID_SHIFT',['../riscv__encodings_8h.html#a87705747b5f460843da70540466a705d',1,'riscv_encodings.h']]],
+  ['hstatus_12',['hstatus',['../structriscv__status.html#acb9bb2db8481dd239ec695e7e793d89a',1,'riscv_status']]],
+  ['hstatus_5fgva_13',['HSTATUS_GVA',['../riscv__encodings_8h.html#a51757876a2f0f443e047b93116b9efd6',1,'riscv_encodings.h']]],
+  ['hstatus_5fhu_14',['HSTATUS_HU',['../riscv__encodings_8h.html#abaf985158a63656244c94cd3d69241b2',1,'riscv_encodings.h']]],
+  ['hstatus_5fspv_15',['HSTATUS_SPV',['../riscv__encodings_8h.html#afdc6190a85280a165a39e9e092c64eb4',1,'riscv_encodings.h']]],
+  ['hstatus_5fspvp_16',['HSTATUS_SPVP',['../riscv__encodings_8h.html#aa1797c7a061c19bd00074b344bf72a8a',1,'riscv_encodings.h']]],
+  ['hstatus_5fvgein_17',['HSTATUS_VGEIN',['../riscv__encodings_8h.html#a44f93c6487bf31274d767673231bce85',1,'riscv_encodings.h']]],
+  ['hstatus_5fvgein_5fshift_18',['HSTATUS_VGEIN_SHIFT',['../riscv__encodings_8h.html#a9748812ef24a905c7ae3e2dc23eb6482',1,'riscv_encodings.h']]],
+  ['hstatus_5fvtsr_19',['HSTATUS_VTSR',['../riscv__encodings_8h.html#a52281452ff68b7e4290273849ea6fe04',1,'riscv_encodings.h']]],
+  ['hstatus_5fvtvm_20',['HSTATUS_VTVM',['../riscv__encodings_8h.html#af7dd969c7a7113382bc133f4d617b119',1,'riscv_encodings.h']]],
+  ['hstatus_5fvtw_21',['HSTATUS_VTW',['../riscv__encodings_8h.html#a3482d82019a1ab4c47cede0ce898216a',1,'riscv_encodings.h']]],
+  ['htinst_22',['htinst',['../structriscv__status.html#affb9e80002891f6b73329ddfa4adae5f',1,'riscv_status']]],
+  ['htval_23',['htval',['../structriscv__status.html#ad5e8b5784fe833e92e6acae263cb3885',1,'riscv_status']]]
+];
