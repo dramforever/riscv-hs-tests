@@ -1,3 +1,8 @@
+/**
+ * @file test_mapping.c
+ * @brief Tests for virtual memory mapping and page fault exceptions
+ */
+
 #include "context.h"
 #include "pt.h"
 #include "riscv_encodings.h"

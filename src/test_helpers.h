@@ -1,3 +1,8 @@
+/**
+ * @file test_helpers.h
+ * @brief Helper macros for writing test cases
+ */
+
 #ifndef _TEST_HELPERS_H
 #define _TEST_HELPERS_H
 

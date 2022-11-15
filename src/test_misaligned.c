@@ -1,3 +1,8 @@
+/**
+ * @file test_misaligned.c
+ * @brief Tests for misaligned memory accesses
+ */
+
 #include "context.h"
 #include "pt.h"
 #include "riscv_encodings.h"

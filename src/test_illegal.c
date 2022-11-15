@@ -1,3 +1,8 @@
+/**
+ * @file test_illegal.c
+ * @brief Tests for illegal instruction exception handling
+ */
+
 #include "context.h"
 #include "printf.h"
 #include "riscv_encodings.h"

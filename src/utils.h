@@ -1,3 +1,8 @@
+/**
+ * @file utils.h
+ * @brief Random helpers
+ */
+
 #ifndef _UTILS_H_
 #define _UTILS_H_
 

@@ -1,3 +1,8 @@
+/**
+ * @file context.h
+ * @brief Task context and exception handling helpers
+ */
+
 #ifndef _CONTEXT_H_
 #define _CONTEXT_H_
 
