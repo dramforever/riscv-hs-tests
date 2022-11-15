@@ -1,0 +1,5 @@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "riscv-hs-tests"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = src
+EXTRACT_ALL            = YES
